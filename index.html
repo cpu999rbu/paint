@@ -7,6 +7,11 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <!-- Кнопка Go to Homepage -->
+    <div class="top-bar">
+        <a href="https://cpu999rbu.github.io/home/" class="home-button">Go to Homepage</a>
+    </div>
+
     <h1>Paint</h1>
     <canvas id="paintCanvas"></canvas>
 
@@ -26,6 +31,16 @@
         <button onclick="saveImage('bmp')">Save as BMP</button>
     </div>
 
+    <!-- Переключатель темы -->
+    <div class="toggle-container">
+        <label class="switch">
+            <input type="checkbox" id="themeToggle">
+            <span class="slider"></span>
+        </label>
+        <span class="toggle-text">Night Mode</span>
+    </div>
+
     <script src="script.js"></script>
 </body>
 </html>
+
