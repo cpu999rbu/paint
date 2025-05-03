@@ -22,11 +22,16 @@ body {
     border-radius: 5px;
 }
 
+/* Настройки размера холста */
+.canvas-settings {
+    margin-bottom: 10px;
+}
+
 /* Холст */
 canvas {
     border: 2px solid black;
     cursor: crosshair;
-    width: 80%;
+    width: 800px;
     height: 400px;
 }
 
