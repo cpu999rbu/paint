@@ -1,7 +1,18 @@
 const canvas = document.getElementById("paintCanvas");
 const ctx = canvas.getContext("2d");
-canvas.width = window.innerWidth * 0.8;
-canvas.height = 400;
+
+// Автоматическое определение размера экрана
+function adjustCanvasSize() {
+    if (window.innerWidth < 600) {
+        canvas.width = window.innerWidth * 0.95;
+        canvas.height = 300;
+    } else {
+        canvas.width = window.innerWidth * 0.8;
+        canvas.height = 400;
+    }
+}
+adjustCanvasSize();
+window.addEventListener("resize", adjustCanvasSize);
 
 let painting = false;
 let brushColor = "#000000";
@@ -73,4 +84,3 @@ function saveImage(format) {
 function toggleTheme() {
     document.body.classList.toggle("dark-mode");
 }
-
