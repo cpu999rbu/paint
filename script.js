@@ -9,9 +9,11 @@ let brushSize = 5;
 let currentTool = "brush";
 let textInput = "";
 
+// Настройка элементов управления
 document.getElementById("colorPicker").addEventListener("input", (e) => brushColor = e.target.value);
 document.getElementById("sizePicker").addEventListener("input", (e) => brushSize = e.target.value);
 document.getElementById("toolPicker").addEventListener("change", (e) => currentTool = e.target.value);
+document.getElementById("themeToggle").addEventListener("change", toggleTheme);
 
 canvas.addEventListener("mousedown", startDrawing);
 canvas.addEventListener("mouseup", stopDrawing);
@@ -54,13 +56,21 @@ function floodFill(x, y, color) {
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 }
 
+// Очистка холста
 function clearCanvas() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 }
 
+// Сохранение изображения в выбранном формате
 function saveImage(format) {
     let link = document.createElement("a");
     link.download = `paint.${format}`;
     link.href = canvas.toDataURL(`image/${format}`);
     link.click();
 }
+
+// Переключение Night/Light Mode
+function toggleTheme() {
+    document.body.classList.toggle("dark-mode");
+}
+
