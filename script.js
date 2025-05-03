@@ -1,13 +1,22 @@
 const canvas = document.getElementById("paintCanvas");
 const ctx = canvas.getContext("2d");
 
-// Автоматическое определение размера экрана
+// Функция установки размера холста
+function updateCanvasSize() {
+    const width = document.getElementById("canvasWidth").value;
+    const height = document.getElementById("canvasHeight").value;
+    canvas.width = width;
+    canvas.height = height;
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+}
+
+// Автоопределение экрана
 function adjustCanvasSize() {
     if (window.innerWidth < 600) {
         canvas.width = window.innerWidth * 0.95;
         canvas.height = 300;
     } else {
-        canvas.width = window.innerWidth * 0.8;
+        canvas.width = 800;
         canvas.height = 400;
     }
 }
@@ -20,7 +29,6 @@ let brushSize = 5;
 let currentTool = "brush";
 let textInput = "";
 
-// Настройка элементов управления
 document.getElementById("colorPicker").addEventListener("input", (e) => brushColor = e.target.value);
 document.getElementById("sizePicker").addEventListener("input", (e) => brushSize = e.target.value);
 document.getElementById("toolPicker").addEventListener("change", (e) => currentTool = e.target.value);
@@ -72,7 +80,7 @@ function clearCanvas() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 }
 
-// Сохранение изображения в выбранном формате
+// Сохранение изображения
 function saveImage(format) {
     let link = document.createElement("a");
     link.download = `paint.${format}`;
