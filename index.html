@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Paint</title>
+    <title>Paint on GitHub Pages</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -12,7 +12,17 @@
         <a href="https://cpu999rbu.github.io/home/" class="home-button">Go to Homepage</a>
     </div>
 
-    <h1>Paint</h1>
+    <h1>Advanced Paint</h1>
+
+    <!-- Настройка размера холста -->
+    <div class="canvas-settings">
+        <label>Width:</label>
+        <input type="number" id="canvasWidth" value="800" min="100">
+        <label>Height:</label>
+        <input type="number" id="canvasHeight" value="400" min="100">
+        <button onclick="updateCanvasSize()">Set Size</button>
+    </div>
+
     <canvas id="paintCanvas"></canvas>
 
     <!-- Панель инструментов -->
